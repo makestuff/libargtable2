@@ -1,8 +1,8 @@
 #!/bin/sh
 
-rm -rf argtable2-12
+rm -rf argtable2-${AT2_VERSION}
 tar zxf argtable2.tgz
-cd argtable2-12
+cd argtable2-${AT2_VERSION}
 if [ "$OS" != "Windows_NT" ]; then
 	./configure
 fi
