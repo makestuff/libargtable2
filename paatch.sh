@@ -23,10 +23,21 @@ ${PATCH} arg_int.c <<EOF
  /* #ifdef HAVE_STDLIB_H */
 EOF
 
+cp argtable2.h argtable2.h.original
+
 ${PATCH} argtable2.h <<EOF
---- argtable2.h.original	2011-06-03 15:06:07.275695001 +0100
-+++ argtable2.h	2011-06-03 15:09:40.427695001 +0100
-@@ -97,4 +97,11 @@
+--- argtable2.h.original	2011-07-31 14:56:49.894112000 +0100
++++ argtable2.h	2011-07-31 14:58:39.242112000 +0100
+@@ -30,4 +30,8 @@
+ #endif
+ 
++/* argtable2 needs this otherwise cl.exe gives warnings */
++#ifdef WIN32
++#pragma warning (disable:4204)
++#endif
+ 
+ /* bit masks for arg_hdr.flag */
+@@ -97,4 +101,11 @@
     };
  
 +struct arg_uint
@@ -38,7 +49,7 @@ ${PATCH} argtable2.h <<EOF
 +
  struct arg_dbl
     {
-@@ -189,4 +196,19 @@
+@@ -189,4 +200,19 @@
                           const char *glossary);
  
 +struct arg_uint* arg_uint0(const char* shortopts,
