@@ -41,4 +41,4 @@ foo: argtable2.tgz
 	make dbg rel
 
 argtable2.tgz:
-	wget -O argtable2.tgz http://downloads.sourceforge.net/project/argtable/argtable/argtable-2.$(AT2_VERSION)/argtable2-$(AT2_VERSION).tar.gz
+	wget --no-check-certificate -O argtable2.tgz http://downloads.sourceforge.net/project/argtable/argtable/argtable-2.$(AT2_VERSION)/argtable2-$(AT2_VERSION).tar.gz
