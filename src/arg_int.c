@@ -24,6 +24,8 @@ USA.
 #include "config.h"
 #endif
 
+#include <ctype.h>
+
 /* #ifdef HAVE_STDLIB_H */
 #include <stdlib.h>
 /* #endif */

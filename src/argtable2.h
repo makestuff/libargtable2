@@ -29,6 +29,10 @@ USA.
 extern "C" {
 #endif
 
+/* argtable2 needs this otherwise cl.exe gives warnings */
+#ifdef WIN32
+#pragma warning (disable:4204)
+#endif
 
 /* bit masks for arg_hdr.flag */
 enum
@@ -94,6 +98,13 @@ struct arg_int
    struct arg_hdr hdr;      /* The mandatory argtable header struct */
    int count;               /* Number of matching command line args */
    int *ival;               /* Array of parsed argument values */
+   };
+
+struct arg_uint
+   {
+   struct arg_hdr hdr;      /* The mandatory argtable header struct */
+   int count;               /* Number of matching command line args */
+   unsigned int *ival;      /* Array of parsed argument values */
    };
 
 struct arg_dbl
@@ -187,6 +198,21 @@ struct arg_int* arg_intn(const char* shortopts,
                          int mincount,
                          int maxcount,
                          const char *glossary);
+
+struct arg_uint* arg_uint0(const char* shortopts,
+                           const char* longopts,
+                           const char* datatype,
+                           const char* glossary);
+struct arg_uint* arg_uint1(const char* shortopts,
+                           const char* longopts,
+                           const char* datatype,
+                           const char *glossary);
+struct arg_uint* arg_uintn(const char* shortopts,
+                           const char* longopts,
+                           const char *datatype,
+                           int mincount,
+                           int maxcount,
+                           const char *glossary);
 
 struct arg_dbl* arg_dbl0(const char* shortopts,
                          const char* longopts,

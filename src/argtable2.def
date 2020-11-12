@@ -6,6 +6,9 @@ EXPORTS
   arg_int0
   arg_int1
   arg_intn
+  arg_uint0
+  arg_uint1
+  arg_uintn
   arg_dbl0
   arg_dbl1
   arg_dbln
