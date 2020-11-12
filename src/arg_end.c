@@ -64,6 +64,7 @@ static void errorfn(void *parent, FILE *fp, int error, const char *argval, const
             break;
         }
     fputc('\n',fp);
+    (void)parent;
     }
 
 

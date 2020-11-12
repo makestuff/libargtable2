@@ -92,7 +92,7 @@ struct longoptions
     struct option *options;
     };
 
-#ifndef NDEBUG
+#ifdef DUMP_LONGOPTIONS
 static
 void dump_longoptions(struct longoptions* longoptions)
     {
@@ -103,7 +103,7 @@ void dump_longoptions(struct longoptions* longoptions)
         {
         printf("options[%d].name    = \"%s\"\n", i, longoptions->options[i].name);
         printf("options[%d].has_arg = %d\n", i, longoptions->options[i].has_arg);
-        printf("options[%d].flag    = %p\n", i, longoptions->options[i].flag);
+        printf("options[%d].flag    = %p\n", i, (void*)longoptions->options[i].flag);
         printf("options[%d].val     = %d\n", i, longoptions->options[i].val);
         }
     }
@@ -955,9 +955,9 @@ void arg_print_glossary(FILE *fp, void **argtable, const char *format)
 static
 void arg_print_formatted( FILE *fp, const unsigned lmargin, const unsigned rmargin, const char *text )
     {
-    const unsigned textlen = strlen( text );
-    unsigned line_start = 0;
-    unsigned line_end = textlen + 1;
+    const size_t textlen = strlen( text );
+    size_t line_start = 0;
+    size_t line_end = textlen + 1;
     const unsigned colwidth = (rmargin - lmargin) + 1;
 
     /* Someone doesn't like us... */
@@ -1124,7 +1124,7 @@ void arg_free(void **argtable)
 void arg_freetable(void **argtable, size_t n)
     {
     struct arg_hdr **table=(struct arg_hdr**)argtable;
-    int tabindex=0;
+    size_t tabindex=0;
     /*printf("arg_freetable(%p)\n",argtable);*/
     for (tabindex=0; tabindex<n; tabindex++)
         {

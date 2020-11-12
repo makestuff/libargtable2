@@ -48,6 +48,7 @@ static int scanfn(struct arg_lit *parent, const char *argval)
         errorcode = EMAXCOUNT;
     /*printf("%s:scanfn(%p,%s) returns %d\n",__FILE__,parent,argval,errorcode);*/
     return errorcode;
+    (void)argval;
     }
 
 static int checkfn(struct arg_lit *parent)
@@ -76,6 +77,7 @@ static void errorfn(struct arg_lit *parent, FILE *fp, int errorcode, const char 
             arg_print_option(fp,shortopts,longopts,datatype,"\n");
             break;
         }
+    (void)argval;
     }
 
 struct arg_lit* arg_lit0(const char* shortopts,
