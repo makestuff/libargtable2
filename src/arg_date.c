@@ -22,22 +22,11 @@ USA.
 #define _XOPEN_SOURCE 
 
 /* SunOS also requires this for strptime */
-#define _XOPEN_VERSION 4 
+//#define _XOPEN_VERSION 4 
 
-/* config.h must be included before anything else */
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
-#ifdef HAVE_STDLIB_H
 #include <stdlib.h>
-#endif
-
-//#ifdef HAVE_STRINGS_H
-#include <strings.h>
-//#endif
-
-#include "argtable2.h"
+#include <string.h>
+#include <sheitmann/libargtable2.h>
 
 /* local error codes  */
 enum {EMINCOUNT=1,EMAXCOUNT,EBADDATE};
@@ -112,7 +101,7 @@ static void errorfn(struct arg_date *parent, FILE *fp, int errorcode, const char
             char buff[200];           
 
             fprintf(fp,"illegal timestamp format \"%s\"\n",argval);
-            bzero(&tm,sizeof(tm));
+            memset(&tm,0,sizeof(tm));
             strptime("1999-12-31 23:59:59","%F %H:%M:%S",&tm);
             strftime(buff, sizeof(buff), parent->format, &tm);
             printf("correct format is \"%s\"\n", buff);                        

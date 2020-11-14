@@ -28,7 +28,7 @@ USA.
 #include <stdlib.h>
 /* #endif */
 
-#include "argtable2.h"
+#include <sheitmann/libargtable2.h>
 
 static void resetfn(struct arg_end *parent)
     {

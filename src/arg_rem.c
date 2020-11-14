@@ -28,7 +28,7 @@ USA.
 #include <stdlib.h>
 /*#endif*/
 
-#include "argtable2.h"
+#include <sheitmann/libargtable2.h>
 
 struct arg_rem* arg_rem(const char *datatype,
                         const char *glossary)

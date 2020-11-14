@@ -19,34 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
 USA.
 **********************************************************************/
 
-/* config.h must be included before anything else */
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
-#ifdef STDC_HEADERS
 #include <stdlib.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#endif
-
-#ifdef HAVE_STRINGS_H
-#include <strings.h>
-#endif
-
-#ifdef HAVE_GETOPT_H
-#include <getopt.h>
-#else
-#include "./getopt.h"
-#endif
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#include "argtable2.h"
-#include "./getopt.h"
+#include "getopt.h"
+#include <sheitmann/libargtable2.h>
 
 static
 void arg_register_error(struct arg_end *end, void *parent, int error, const char *argval)

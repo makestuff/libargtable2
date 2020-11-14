@@ -19,20 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
 USA.
 **********************************************************************/
 
-/* config.h must be included before anything else */
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
-#ifdef HAVE_STRING_H
 #include <string.h>
-#endif
-
-#ifdef HAVE_STDLIB_H
 #include <stdlib.h>
-#endif
-
-#include "argtable2.h"
+#include <sheitmann/libargtable2.h>
 
 #ifdef WIN32
 # define FILESEPARATOR1 '\\'
