@@ -30,7 +30,7 @@ extern "C" {
 #endif
 
 /* argtable2 needs this otherwise cl.exe gives warnings */
-#ifdef WIN32
+#ifdef _MSC_VER
 #pragma warning (disable:4204)
 #endif
 
